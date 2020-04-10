@@ -32,7 +32,7 @@ const HelperList = ({ city }) => {
   const renderOneCity = () =>
     search?.city?.map(({ id, name, city }) => (
       <div
-        key={town.id}
+        key={id}
         style={{
           border: "1px solid black",
           marginBottom: "5px",
