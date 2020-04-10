@@ -25,5 +25,9 @@
   "devDependencies": {
     "prettier": "^2.0.4",
     "redux-logger": "^3.0.6"
+  },
+  "prettier": {
+    "jsxSingleQuote": true,
+    "printWidth": 120
   }
 }

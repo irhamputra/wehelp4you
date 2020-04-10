@@ -30,16 +30,11 @@ const SearchBar = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input
-          name="search"
-          ref={register}
-          type="text"
-          placeholder="Search your location.."
-        />
-        <button type="submit">Search</button>
+        <input name='search' ref={register} type='text' placeholder='Search your location..' />
+        <button type='submit'>Search</button>
       </form>
 
-      <ErrorMessage name="search" errors={errors} />
+      <ErrorMessage name='search' errors={errors} />
     </div>
   );
 };

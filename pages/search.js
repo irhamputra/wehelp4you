@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllLists, searchCity } from "../store/actions/search";
 import { useRouter } from "next/router";
+import HelperList from "../components/HelperList";
+import { getAllLists, searchCity } from "../store/actions/search";
 
 const Search = () => {
   const search = useSelector((state) => state.search);
@@ -51,7 +52,7 @@ const Search = () => {
   return (
     <div>
       <h1>Helpers list here</h1>
-      {query?.city ? renderOneCity() : renderAllCity()}
+      <HelperList city={query?.city} />
     </div>
   );
 };
