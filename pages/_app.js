@@ -5,6 +5,7 @@ import withRedux from "next-redux-wrapper";
 import "../firebase/config";
 
 import { makeStore } from "../store";
+import Layout from "../components/Layout";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -19,7 +20,9 @@ class MyApp extends App {
     const { Component, pageProps, store } = this.props;
     return (
       <Provider store={store}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </Provider>
     );
   }

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm, ErrorMessage } from "react-hook-form";
 import * as yup from "yup";
+import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { searchCity } from "../store/actions/search";
 
@@ -9,14 +10,21 @@ const validationSearch = yup.object().shape({
 });
 
 const SearchBar = () => {
-  const { handleSubmit, register, errors, reset } = useForm({
+  const { handleSubmit, register, errors, setValue } = useForm({
     validationSchema: validationSearch,
   });
+  const { push, query } = useRouter();
   const dispatch = useDispatch();
 
-  const onSubmit = ({ search }) => {
+  useEffect(() => {
+    if (query) {
+      setValue("search", query?.city, false);
+    }
+  }, []);
+
+  const onSubmit = async ({ search }) => {
     dispatch(searchCity(search));
-    reset();
+    await push(`/search?city=${search}`);
   };
 
   return (
