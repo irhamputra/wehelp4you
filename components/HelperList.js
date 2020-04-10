@@ -1,38 +1,48 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const HelperList = ({ city }) => {
   const search = useSelector((state) => state.search);
+  const { push } = useRouter();
+
+  const goToUser = async (id) => {
+    await push("/user/[id]", `/user/${id}`);
+  };
 
   const renderAllCity = () =>
-    search?.lists?.map((list, i) => {
+    search?.lists?.map(({ id, name, city }) => {
       return (
         <div
-          key={i}
+          key={id}
           style={{
             border: "1px solid black",
             marginBottom: "5px",
             padding: "5px",
+            cursor: "pointer",
           }}
+          onClick={() => goToUser(id)}
         >
-          <p>{list.name}</p>
-          <p>{list.city}</p>
+          <p>{name}</p>
+          <p>{city}</p>
         </div>
       );
     });
 
   const renderOneCity = () =>
-    search?.city?.map((town, i) => (
+    search?.city?.map(({ id, name, city }) => (
       <div
-        key={i}
+        key={town.id}
         style={{
           border: "1px solid black",
           marginBottom: "5px",
           padding: "5px",
+          cursor: "pointer",
         }}
+        onClick={() => goToUser(id)}
       >
-        <p>{town.name}</p>
-        <p>{town.city}</p>
+        <p>{name}</p>
+        <p>{city}</p>
       </div>
     ));
 
