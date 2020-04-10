@@ -16,8 +16,9 @@ const UserID = () => {
 
   return (
     <div>
+      <h1>User</h1>
       <p>{query?.id}</p>
-      <p>{selectedUser?.name}</p>
+      <p>{selectedUser?.fullName}</p>
       <p>{selectedUser?.city}</p>
     </div>
   );

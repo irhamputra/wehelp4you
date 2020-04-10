@@ -11,7 +11,7 @@ const HelperList = ({ city }) => {
   };
 
   const renderAllCity = () =>
-    search?.lists?.map(({ id, name, city }) => {
+    search?.lists?.map(({ id, fullName, city, services }) => {
       return (
         <div
           key={id}
@@ -23,14 +23,20 @@ const HelperList = ({ city }) => {
           }}
           onClick={() => goToUser(id)}
         >
-          <p>{name}</p>
+          <p>{fullName}</p>
           <p>{city}</p>
+          <span>Services: </span>
+          <ul>
+            {services?.map((service, i) => (
+              <li key={i}>{service}</li>
+            ))}
+          </ul>
         </div>
       );
     });
 
   const renderOneCity = () =>
-    search?.city?.map(({ id, name, city }) => (
+    search?.city?.map(({ id, fullName, city, services }) => (
       <div
         key={id}
         style={{
@@ -41,8 +47,14 @@ const HelperList = ({ city }) => {
         }}
         onClick={() => goToUser(id)}
       >
-        <p>{name}</p>
+        <p>{fullName}</p>
         <p>{city}</p>
+        <span>Services: </span>
+        <ul>
+          {services?.map((service, i) => (
+            <li key={i}>{service}</li>
+          ))}
+        </ul>
       </div>
     ));
 
