@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useForm, ErrorMessage } from "react-hook-form";
 import { useGeolocation } from "react-use";
 import * as yup from "yup";
+import fetch from "isomorphic-unfetch";
 import { v4 as uuidv4 } from "uuid";
 import { db } from "../firebase/config";
 
@@ -32,13 +33,30 @@ const Register = () => {
   }, [state]);
 
   const onSubmit = async (data) => {
-    const userData = {
-      ...data,
-      services: data.services.split(",").map((word) => word.trim()),
-    };
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data.tel),
+      });
 
-    await db().collection("helpers").doc(uuidv4()).set(userData);
-    await push("/search");
+      const json = await res.json();
+
+      await db()
+        .collection("helpers")
+        .doc(uuidv4())
+        .set({
+          ...data,
+          services: data.services.split(",").map((word) => word.trim()),
+          password: json.data,
+        });
+
+      await push("/search");
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
