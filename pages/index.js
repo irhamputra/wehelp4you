@@ -13,7 +13,7 @@ const Home = () => (
     <SearchBar />
 
     <p style={{ textAlign: "center" }}>
-      This app is built for people to people. Let's help each other to fight Coronavirus
+      This app is built for people to people. Let's help each other to fight Coronavirus 🦠
     </p>
   </div>
 );
