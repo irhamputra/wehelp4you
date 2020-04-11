@@ -17,7 +17,7 @@ const Search = () => {
   }, []);
 
   return (
-    <div>
+    <div className="mt-5">
       <h1>Helpers list here</h1>
       <HelperList city={query?.city} />
     </div>

@@ -61,34 +61,37 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2 style={{ textAlign: "center" }}>Register here</h2>
-      <img src={image} width='100%' alt='img' />
+    <div className='mt-5'>
+      <h3 style={{ textAlign: "center" }}>Register here</h3>
+      <div className='d-flex justify-content-center'>
+        <img src={image} width='70%' alt='img' />
+      </div>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
+        <div className='form-group'>
           <label htmlFor='fullName'>Full Name: </label>
-          <input type='text' name='fullName' placeholder='Your name here...' ref={register} />
+          <input type='text' className='form-control' name='fullName' placeholder='Your name here...' ref={register} />
           <ErrorMessage name='fullName' errors={errors} />
         </div>
 
-        <div>
-          <label htmlFor='fullName'>City: </label>
-          <input type='text' name='city' placeholder='Your location here...' ref={register} />
-          <ErrorMessage name='location' errors={errors} />
+        <div className='row'>
+          <div className='col-6 form-group'>
+            <label htmlFor='City'>City: </label>
+            <input type='text' className='form-control' name='city' placeholder='Your city here...' ref={register} />
+            <ErrorMessage name='location' errors={errors} />
+          </div>
+
+          <div className='col-6 form-group'>
+            <label htmlFor='ZipCode'>Zip Code: </label>
+            <input type='text' className='form-control' name='zip' placeholder='Your zip code...' ref={register} />
+            <ErrorMessage name='zip' errors={errors} />
+          </div>
         </div>
 
-        <div>
-          <label htmlFor='fullName'>Geo Location: </label>
-          <input type='text' name='longitude' disabled={state.longitude} ref={register} />
-          <input type='text' name='latitude' disabled={state.latitude} ref={register} />
-          <ErrorMessage name='longitude' errors={errors} />
-          <ErrorMessage name='latitude' errors={errors} />
-        </div>
-
-        <div>
+        <div className='form-group'>
           <label htmlFor='fullName'>Services: </label>
           <input
+            className='form-control'
             type='text'
             name='services'
             placeholder='Your services here... Separated by coma! (e.g Delivery Goods, Driver)'
@@ -97,13 +100,19 @@ const Register = () => {
           <ErrorMessage name='services' errors={errors} />
         </div>
 
-        <div>
+        <div className='form-group'>
           <label htmlFor='fullName'>Telephone: </label>
-          <input type='tel' name='tel' placeholder='Your tel number here...' ref={register} />
+          <input className='form-control' type='tel' name='tel' placeholder='Your tel number here...' ref={register} />
           <ErrorMessage name='tel' errors={errors} />
         </div>
 
-        <button type='submit'>Submit</button>
+        <button
+          className='btn mb-2 text-white btn-block'
+          style={{ backgroundColor: "#6067a0", border: "1px solid #6067a0" }}
+          type='submit'
+        >
+          Submit
+        </button>
       </form>
     </div>
   );

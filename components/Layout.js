@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import { AiOutlineHome, AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
+import { useRouter } from "next/router";
 
 const Layout = ({ children }) => {
+  const { pathname } = useRouter();
+
+  let slug;
+
+  if (pathname === "/") slug = "WeHelp4You.com";
+  else if (pathname === "/account") slug = "Account";
+  else if (pathname === "/register") slug = "Register";
+  else if (pathname === "/search") slug = "Search";
+
   return (
     <div className='container'>
-      <header style={{ textAlign: "center", paddingTop: "15px" }}>
-        <p>
-          <strong>WeHelp4You.com</strong>
+      <header className='bg-white fixed-top text-center'>
+        <p className='py-2 m-0'>
+          <strong>{slug}</strong>
         </p>
       </header>
 
