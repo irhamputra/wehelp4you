@@ -1,5 +1,7 @@
-![image2](https://user-images.githubusercontent.com/22166728/79042103-2ec3a880-7bf5-11ea-8545-4245f7396820.png)
+![image2](https://user-images.githubusercontent.com/22166728/79042412-fffb0180-7bf7-11ea-99c1-2912c11224e5.png)
 
 <h1 style="text-align: center">WeHelp4You</h1>
 
 The platform to help people during Coronavirus and everyone can help
+
+anyone can contribute
