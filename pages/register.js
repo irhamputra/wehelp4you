@@ -6,6 +6,7 @@ import * as yup from "yup";
 import fetch from "isomorphic-unfetch";
 import { v4 as uuidv4 } from "uuid";
 import { db } from "../firebase/config";
+import image from "../public/image1.png";
 
 const validationRegister = yup.object().shape({
   fullName: yup.string().min(3).required(),
@@ -61,7 +62,9 @@ const Register = () => {
 
   return (
     <div>
-      <h1>Register here</h1>
+      <h2 style={{ textAlign: "center" }}>Register here</h2>
+      <img src={image} width='100%' alt='img' />
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor='fullName'>Full Name: </label>

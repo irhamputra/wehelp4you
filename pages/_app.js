@@ -2,10 +2,10 @@ import React from "react";
 import { Provider } from "react-redux";
 import App from "next/app";
 import withRedux from "next-redux-wrapper";
-import "../firebase/config";
-
 import { makeStore } from "../store";
 import Layout from "../components/Layout";
+import "../firebase/config";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {

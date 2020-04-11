@@ -28,13 +28,28 @@ const SearchBar = () => {
   };
 
   return (
-    <div>
+    <div className='mt-3'>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input name='search' ref={register} type='text' placeholder='Search your location..' />
-        <button type='submit'>Search</button>
+        <div className='form-group'>
+          <div className='input-group'>
+            <input
+              name='search'
+              className='form-control h-100'
+              ref={register}
+              type='text'
+              placeholder='Search your location..'
+            />
+            <div className='input-group-append'>
+              <button type='submit' className='btn btn-outline-secondary'>
+                Search
+              </button>
+            </div>
+          </div>
+          <small className='text-danger'>
+            <ErrorMessage name='search' errors={errors} />
+          </small>
+        </div>
       </form>
-
-      <ErrorMessage name='search' errors={errors} />
     </div>
   );
 };

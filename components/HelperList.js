@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import SearchBar from "./SearchBar";
 
 const HelperList = ({ city }) => {
   const search = useSelector((state) => state.search);
@@ -58,7 +59,12 @@ const HelperList = ({ city }) => {
       </div>
     ));
 
-  return <div>{city ? renderOneCity() : renderAllCity()}</div>;
+  return (
+    <div>
+      <SearchBar />
+      {city ? renderOneCity() : renderAllCity()}
+    </div>
+  );
 };
 
 export default HelperList;
